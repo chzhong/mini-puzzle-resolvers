@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4efe5">
+  <title>Logic Lab · Puzzle Arcade</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="home-shell">
+    <header class="home-header">
+      <p class="eyebrow">Logic Lab</p>
+      <h1>选择一局谜题</h1>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="切换主题">◐</button>
+    </header>
+    <section class="game-cards">
+      <a class="game-card light-card" href="./light.html">
+        <div class="card-art">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="card-copy">
+          <p>Lights Out</p>
+          <h2>点灯游戏</h2>
+          <span>打开每一盏灯 <b>→</b></span>
+        </div>
+      </a>
+      <a class="game-card slide-card" href="./slide.html">
+        <div class="card-art slide-art">
+          <span>1</span><span>2</span><span>3</span>
+          <span>4</span><span>5</span><span>6</span>
+          <span>7</span><span>8</span><span></span>
+        </div>
+        <div class="card-copy">
+          <p>Sliding Puzzle</p>
+          <h2>数字华容道</h2>
+          <span>还原所有拼块 <b>→</b></span>
+        </div>
+      </a>
+    </section>
+  </main>
+  <script>
+    document.querySelector("#theme-toggle").addEventListener("click", () =>
+      document.body.classList.toggle("dark"));
+  </script>
+</body>
+</html>

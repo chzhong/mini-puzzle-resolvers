@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Light Puzzle · 点灯游戏</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow"><a href="./index.html">Logic Lab</a> / 01</p>
+        <h1>点灯游戏</h1>
+      </div>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="切换主题">◐</button>
+    </header>
+    <section class="workspace">
+      <aside class="controls">
+        <fieldset class="control-group">
+          <legend>游戏尺寸</legend>
+          <div class="dimension-control">
+            <label>行 <input id="rows-input" type="number" min="2" max="7" value="5"></label>
+            <span>×</span>
+            <label>列 <input id="cols-input" type="number" min="2" max="7" value="5"></label>
+          </div>
+        </fieldset>
+        <fieldset class="control-group">
+          <legend>玩法</legend>
+          <label class="radio-row"><input type="radio" name="playmode" value="solve" checked><span><strong>求解模式</strong><small>编辑并生成解法</small></span></label>
+          <label class="radio-row"><input type="radio" name="playmode" value="play"><span><strong>自己玩</strong><small>每步检查是否可解</small></span></label>
+        </fieldset>
+        <fieldset class="control-group">
+          <legend>规则模式</legend>
+          <label class="radio-row"><input type="radio" name="mode" value="repeat" checked><span><strong>经典模式</strong><small>开关可重复点击</small></span></label>
+          <label class="radio-row"><input type="radio" name="mode" value="once"><span><strong>一次模式</strong><small>已开启不可再点</small></span></label>
+        </fieldset>
+        <div class="control-group">
+          <label>画板工具</label>
+          <div class="tool-grid">
+            <button class="tool active" data-tool="toggle" type="button">切换状态</button>
+            <button class="tool" data-tool="hole" type="button">空洞</button>
+          </div>
+        </div>
+        <button id="reset" class="secondary-button" type="button">清空棋盘</button>
+        <button id="solve" class="primary-button" type="button"><span>求解棋盘</span><span>→</span></button>
+      </aside>
+      <section class="game-panel">
+        <div class="status-bar"><span id="status">点击方格可编辑棋盘</span><span id="move-count">0 步</span></div>
+        <div id="board" class="board" aria-label="点灯棋盘"></div>
+      </section>
+      <aside class="solution-panel">
+        <div class="panel-heading"><p class="eyebrow">Solution</p><h2>求解路径</h2></div>
+        <div id="solution-empty" class="solution-empty"><div class="orbit"></div><p>设置棋盘后<br>生成最优解</p></div>
+        <ol id="solution-list" class="solution-list" hidden></ol>
+        <div class="playback" hidden id="playback">
+          <button id="step-back" type="button">←</button><button id="step-play" type="button">演示</button><button id="step-next" type="button">→</button>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script src="./game.js"></script>
+</body>
+</html>

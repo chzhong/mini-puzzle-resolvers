@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sliding Puzzle · 数字华容道</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell slide-shell">
+    <header class="topbar">
+      <div><p class="eyebrow"><a href="./index.html">Logic Lab</a> / 02</p><h1>数字华容道</h1></div>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="切换主题">◐</button>
+    </header>
+    <section class="workspace slide-workspace">
+      <aside class="controls">
+        <div class="control-group"><label>棋盘尺寸</label>
+          <div id="size-options" class="size-options">
+            <button data-size="3" type="button">3×3</button><button data-size="4" type="button" class="active">4×4</button>
+            <button data-size="5" type="button">5×5</button><button data-size="6" type="button">6×6</button>
+          </div>
+        </div>
+        <fieldset class="control-group"><legend>额外格子</legend>
+          <label class="radio-row"><input type="radio" name="extra" value="none" checked><span><strong>无额外格</strong><small>外部边缘空格</small></span></label>
+          <label class="radio-row"><input type="radio" name="extra" value="edge"><span><strong>边缘额外格</strong><small>在棋盘右侧加一格</small></span></label>
+        </fieldset>
+        <fieldset class="control-group"><legend>显示方式</legend>
+          <label class="radio-row"><input type="radio" name="slide-mode" value="number" checked><span><strong>数字</strong></span></label>
+          <label class="radio-row"><input type="radio" name="slide-mode" value="image"><span><strong>图片拼图</strong></span></label>
+        </fieldset>
+        <div class="control-group">
+          <label for="image-upload">目标图 / 当前图</label>
+          <input id="image-upload" type="file" accept="image/*" hidden>
+          <div class="tool-grid">
+            <button id="target-upload" class="tool" type="button">上传目标图</button>
+            <button id="state-upload" class="tool" type="button">上传当前图</button>
+          </div>
+          <button id="paste-help" class="paste-button" type="button">粘贴截图（Ctrl / Cmd + V）</button>
+        </div>
+        <button id="shuffle" class="secondary-button" type="button">打乱棋盘</button>
+        <button id="slide-solve" class="primary-button" type="button"><span>求解棋盘</span><span>→</span></button>
+      </aside>
+      <section class="game-panel slide-game-panel">
+        <div class="status-bar"><span id="slide-status">拖拽或点击相邻格子移动；拖拽可编辑</span><span id="slide-count">0 步</span></div>
+        <div id="slide-board" class="slide-board" aria-label="华容道棋盘"></div>
+      </section>
+      <aside class="solution-panel">
+        <div class="panel-heading"><p class="eyebrow">Solution</p><h2>求解路径</h2></div>
+        <div id="slide-empty" class="solution-empty"><div class="orbit"></div><p>设置状态后<br>检测并求解</p></div>
+        <ol id="slide-list" class="solution-list" hidden></ol>
+        <button id="slide-play" class="secondary-button" type="button" hidden>演示解法</button>
+      </aside>
+    </section>
+  </main>
+  <script src="./slide.js"></script>
+</body>
+</html>
